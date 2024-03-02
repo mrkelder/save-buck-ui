@@ -1,30 +1,50 @@
 import React from "react";
 import "./App.css";
 import { Container, TextField, Button } from "@mui/material";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#EE8A58", // change primary color here
+    },
+    secondary: {
+      main: "#FCF1ED", // change secondary color here
+    },
+  },
+});
 
 function App() {
   return (
-    <Container
-      sx={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        width: "100vw",
-        height: "100vh",
-      }}
-    >
+    <ThemeProvider theme={theme}>
       <Container
         sx={{
           display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "100vw",
+          height: "100vh",
         }}
-        maxWidth="md"
       >
-        <TextField fullWidth label="Filled" variant="filled" />
-        <Button variant="contained" sx={{ textTransform: "capitalize" }}>
-          Search
-        </Button>
+        <Container
+          sx={{
+            display: "flex",
+          }}
+          maxWidth="md"
+        >
+          <TextField fullWidth label="Filled" variant="filled" />
+          <Button
+            variant="contained"
+            sx={({ palette }) => ({
+              textTransform: "capitalize",
+              color: palette.secondary.main,
+            })}
+          >
+            Search
+          </Button>
+        </Container>
       </Container>
-    </Container>
+    </ThemeProvider>
   );
 }
 
