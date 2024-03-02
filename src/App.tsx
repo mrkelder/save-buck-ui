@@ -32,7 +32,12 @@ function App() {
           }}
           maxWidth="md"
         >
-          <TextField fullWidth label="Filled" variant="filled" />
+          <TextField
+            fullWidth
+            label="Search"
+            placeholder="Please put your product here"
+            variant="filled"
+          />
           <Button
             variant="contained"
             sx={({ palette }) => ({
